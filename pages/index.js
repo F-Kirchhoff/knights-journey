@@ -1,19 +1,8 @@
-import styled from "styled-components";
 import Board from "../components/Board";
 
-export default function Home() {
-  return (
-    <PageWrapper>
-      <h1>The Knights Journey</h1>
-      <Board />
-    </PageWrapper>
-  );
+export default function Home({ moveHistory, moveKnight, resetMoves }) {
+  if (moveHistory.length === 0) {
+    return <h1>Loading...</h1>;
+  }
+  return <Board moveHistory={moveHistory} moveKnight={moveKnight} />;
 }
-
-const PageWrapper = styled.main`
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  min-height: 100vh;
-  align-items: center;
-`;
