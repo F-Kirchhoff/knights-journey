@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import useStore from "../lib/hooks/useStore";
 
-export default function Page({ moveHistory }) {
+export default function Page() {
+  const moveHistory = useStore((state) => state.moveHistory);
   return (
     <PageWrapper>
       <h2>

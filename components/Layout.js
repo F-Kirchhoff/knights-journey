@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import useStore from "../lib/hooks/useStore";
 
-export default function Layout({ resetMoves, children }) {
+export default function Layout({ children }) {
   const router = useRouter();
+  const resetMoves = useStore((state) => state.resetMoves);
   return (
     <PageWrapper>
       <Header>
@@ -53,7 +55,6 @@ const NavLink = styled(Link)`
   color: inherit;
   text-underline-offset: 9px;
   text-decoration: ${({ path, href }) => {
-    console.log(path, href);
     return path === href ? "underline 2px" : "none";
   }};
 `;

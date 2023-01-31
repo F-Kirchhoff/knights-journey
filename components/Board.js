@@ -2,9 +2,13 @@ import styled from "styled-components";
 import Knight from "./Knight";
 import Square from "./Square";
 import { SQUARES, checkIfLegalMove } from "../lib/utils";
+import useStore from "../lib/hooks/useStore";
 
-export default function Board({ moveHistory, moveKnight }) {
-  const currentSquare = SQUARES.find((square) => moveHistory[0] === square.id);
+export default function Board() {
+  const getCurrentSquare = useStore((state) => state.getCurrentSquare);
+  const currentSquare = getCurrentSquare();
+  const moveHistory = useStore((state) => state.moveHistory);
+  const moveKnight = useStore((state) => state.moveKnight);
 
   return (
     <BoardWrapper>

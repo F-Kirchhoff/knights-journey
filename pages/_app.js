@@ -2,32 +2,20 @@ import { useEffect, useState } from "react";
 import GlobalStyle from "../styles";
 import { getRandomPosition } from "../lib/utils";
 import Layout from "../components/Layout";
+import useStore from "../lib/hooks/useStore";
 
 function MyApp({ Component, pageProps }) {
-  const [moveHistory, setMoveHistory] = useState([]);
+  const resetMoves = useStore((state) => state.resetMoves);
+
   useEffect(() => {
-    const initialPosition = getRandomPosition();
-    setMoveHistory([initialPosition]);
+    resetMoves();
   }, []);
-
-  function moveKnight(nextSquareId) {
-    setMoveHistory([nextSquareId, ...moveHistory]);
-  }
-
-  function resetMoves() {
-    const newInitialPosition = getRandomPosition();
-    setMoveHistory([newInitialPosition]);
-  }
 
   return (
     <>
       <GlobalStyle />
-      <Layout resetMoves={resetMoves}>
-        <Component
-          {...pageProps}
-          moveHistory={moveHistory}
-          moveKnight={moveKnight}
-        />
+      <Layout>
+        <Component {...pageProps} />
       </Layout>
     </>
   );
