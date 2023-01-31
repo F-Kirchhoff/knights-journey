@@ -53,7 +53,6 @@ const NavLink = styled(Link)`
   color: inherit;
   text-underline-offset: 9px;
   text-decoration: ${({ path, href }) => {
-    console.log(path, href);
     return path === href ? "underline 2px" : "none";
   }};
 `;
