@@ -5,7 +5,6 @@ import { SQUARES, checkIfLegalMove } from "../lib/utils";
 
 export default function Board({ moveHistory, moveKnight }) {
   const currentSquare = SQUARES.find((square) => moveHistory[0] === square.id);
-
   return (
     <BoardWrapper>
       {SQUARES.map((square) => (

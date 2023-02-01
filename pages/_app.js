@@ -6,8 +6,7 @@ import Layout from "../components/Layout";
 function MyApp({ Component, pageProps }) {
   const [moveHistory, setMoveHistory] = useState([]);
   useEffect(() => {
-    const initialPosition = getRandomPosition();
-    setMoveHistory([initialPosition]);
+    resetMoves();
   }, []);
 
   function moveKnight(nextSquareId) {
