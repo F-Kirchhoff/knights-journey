@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
 import GlobalStyle from "../styles";
 import { getRandomPosition } from "../lib/utils";
-import Layout from "../components/Layout";
 import useStore from "../lib/hooks/useStore";
+import dynamic from "next/dynamic";
+
+const Layout = dynamic(() => import("../components/Layout"), { ssr: false });
 
 function MyApp({ Component, pageProps }) {
-  const resetMoves = useStore((state) => state.resetMoves);
-
-  useEffect(() => {
-    resetMoves();
-  }, []);
-
   return (
     <>
       <GlobalStyle />

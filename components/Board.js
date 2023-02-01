@@ -10,6 +10,10 @@ export default function Board() {
   const moveHistory = useStore((state) => state.moveHistory);
   const moveKnight = useStore((state) => state.moveKnight);
 
+  if (!currentSquare) {
+    return <h2>Start a new Game</h2>;
+  }
+
   return (
     <BoardWrapper>
       {SQUARES.map((square) => (

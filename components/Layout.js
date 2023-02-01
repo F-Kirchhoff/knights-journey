@@ -18,7 +18,7 @@ export default function Layout({ children }) {
             Score
           </NavLink>
         </Nav>
-        <Button onClick={resetMoves}>Reset</Button>
+        <Button onClick={resetMoves}>new game</Button>
       </Header>
       {children}
     </PageWrapper>
